@@ -35,7 +35,7 @@ const MaterialUiLink = forwardRef<HTMLAnchorElement, MaterialUiLinkProps>(
   ({ item, query, ...props }, ref) => (
     <Link
       href={{
-        pathname: '/cars',
+        pathname: '/users',
         query: { ...query, page: item.page },
       }}
       shallow

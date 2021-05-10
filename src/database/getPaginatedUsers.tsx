@@ -21,7 +21,7 @@ export async function getPaginatedUsers(query: ParsedUrlQuery) {
     '@taxID': getValueStr(query.taxID),
   };
 
-  const carsPromise = db.all<UserModel[]>(
+  const usersPromise = db.all<UserModel[]>(
     `SELECT * ${mainQuery} LIMIT @rowsPerPage OFFSET @offset`,
     {
       ...dbParams,
@@ -35,7 +35,7 @@ export async function getPaginatedUsers(query: ParsedUrlQuery) {
     dbParams
   );
 
-  const [users, totalRows] = await Promise.all([carsPromise, totalRowsPromise]);
+  const [users, totalRows] = await Promise.all([usersPromise, totalRowsPromise]);
 
   return { users, totalPages: Math.ceil(totalRows.count / rowsPerPage) };
 }

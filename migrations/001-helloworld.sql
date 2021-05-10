@@ -26,9 +26,9 @@ CREATE TABLE User (
 INSERT INTO User (taxID, dba, createDate) values('123456789', 'Business 1', DATE('2021-03-01'));
 INSERT INTO User (taxID, dba, createDate) values('234567891', 'Business 2', DATE('2020-11-01'));
 INSERT INTO User (taxID, dba, createDate) values('3456789121', 'Business 3', DATE('2018-11-01'));
--- INSERT INTO User (taxID, dba, createDate) values('456789123',  'Business 4', DATE('2018-11-01'));
--- INSERT INTO User (taxID, dba, createDate) values('567891234', 'Business 5', DATE('2018-11-01'));
--- INSERT INTO User (taxID, dba, createDate) values('678912345', 'Business 6', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('456789123',  'Business 4', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('567891234', 'Business 5', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('678912345', 'Business 6', DATE('2018-11-01'));
 
 
 -- CAR
