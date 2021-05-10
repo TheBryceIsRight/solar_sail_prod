@@ -1,4 +1,4 @@
-import { Button, FormControl, Grid, InputLabel, makeStyles, MenuItem, Paper, Select, SelectProps } from '@material-ui/core';
+import { Button, FormControl, Grid, InputLabel, makeStyles, MenuItem, Paper, Select, SelectProps, Typography } from '@material-ui/core';
 import { Field, Form, Formik, useField, useFormikContext } from 'formik';
 import { GetServerSideProps } from 'next';
 import router, { useRouter } from 'next/router';
@@ -54,19 +54,19 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
             <Grid container spacing={3}>
               <Grid item xs={12} sm={smValue}>
                 <FormControl fullWidth variant="outlined">
-                  <InputLabel id="search-make">Users</InputLabel>
+                  <InputLabel id="search-users">DBA</InputLabel>
                   <Field
-                    name="users"
+                    name="dba"
                     as={Select}
                     labelId="search-users"
-                    label="Users"
+                    label="DBA"
                   >
                     <MenuItem value="all">
-                      <em>All Users</em>
+                      <em>All businesses</em>
                     </MenuItem>
-                    {dba.map((name) => (
-                      <MenuItem key={name.name} value={name.name}>
-                        {`${name.name}`}
+                    {dba.map((dba) => (
+                      <MenuItem key={dba.dba} value={dba.dba}>
+                        {dba.dba}
                       </MenuItem>
                     ))}
                   </Field>
@@ -78,16 +78,16 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
                   <Field
                     name="taxID"
                     as={Select}
-                    labelId="search-users"
-                    label="Users"
+                    labelId="search-taxid"
+                    label="Tax ID"
                   >
                     <MenuItem value="all">
                       <em>All IDs</em>
                     </MenuItem>
-                    {taxID.map((name) => (
-                      <MenuItem key={name.name} value={name.name}>
-                        {`${name.name}`}
-                      </MenuItem>
+                    {taxID.map((taxID) => (
+                      <MenuItem key={taxID.taxID} value={taxID.taxID}>
+                      {taxID.taxID}
+                    </MenuItem>
                     ))}
                   </Field>
                 </FormControl>

@@ -65,7 +65,6 @@ export default function UsersList({
 export const getServerSideProps: GetServerSideProps<UsersListProps> = async (
   ctx
 ) => {
-  const make = getAsString(ctx.query.make);
 
   const [dba, taxID, pagination] = await Promise.all([
     getDBA(),

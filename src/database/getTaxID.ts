@@ -2,6 +2,7 @@ import { openDB } from '../openDB';
 
 export interface TaxID {
     name: string;
+    taxID: string;
     count: number;
 }
 

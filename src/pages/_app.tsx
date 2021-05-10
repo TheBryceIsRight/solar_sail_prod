@@ -38,7 +38,7 @@ export default class MyApp extends App {
     return (
       <React.Fragment>
         <Head>
-          <title>Car Trader</title>
+          <title>Boost</title>
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"

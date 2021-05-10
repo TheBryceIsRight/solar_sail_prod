@@ -4,6 +4,7 @@ export interface BusinessAs {
   id: number;
   name: string;
   count: number;
+  dba: string;
 }
 
 export async function getDBA() {

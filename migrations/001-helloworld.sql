@@ -29,6 +29,12 @@ INSERT INTO User (taxID, dba, createDate) values('3456789121', 'Business 3', DAT
 INSERT INTO User (taxID, dba, createDate) values('456789123',  'Business 4', DATE('2018-11-01'));
 INSERT INTO User (taxID, dba, createDate) values('567891234', 'Business 5', DATE('2018-11-01'));
 INSERT INTO User (taxID, dba, createDate) values('678912345', 'Business 6', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('123456780', 'Coca-Cola', DATE('2021-03-01'));
+INSERT INTO User (taxID, dba, createDate) values('234567890', 'Delta', DATE('2020-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('3456789120', 'The Home Depot', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('456789120',  'Mailchimp', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('567891230', 'NCR', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, createDate) values('678912340', 'U.S. Bank', DATE('2018-11-01'));
 
 
 -- CAR
