@@ -1,6 +1,8 @@
 import { AppBar, Button, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import Link from 'next/link';
 import React from 'react';
+import HomeIcon from '@material-ui/icons/Home';
+import HelpIcon from '@material-ui/icons/Help';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,21 +26,17 @@ export function Nav() {
           Boost
         </Typography>
 
-        <Button color="inherit">
-          <Link href="/">
-            <a style={{ color: 'white' }}>
-              <Typography color="inherit">Home</Typography>
-            </a>
-          </Link>
+        <Link href="/search" passHref>
+        <Button color="inherit" startIcon={<HomeIcon/>}>
+             Home
         </Button>
+        </Link>
+        <Link href="/faq">
 
-        <Button color="inherit">
-          <Link href="/faq">
-            <a style={{ color: 'white' }}>
-              <Typography color="inherit">FAQ</Typography>
-            </a>
-          </Link>
+        <Button color="inherit" startIcon={<HelpIcon/>}>
+             FAQ
         </Button>
+        </Link>
       </Toolbar>
     </AppBar>
   );

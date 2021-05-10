@@ -13,8 +13,8 @@ import { getAsString } from '../getAsString';
 import { UserCard } from '../components/UserCard';
 import { UserModel } from '../../api/User';
 import { UserPagination } from '../components/UserPagination';
-import { getRegion, Region } from '../database/getRegion';
 import { getCities, City } from '../database/getCities';
+import { getState, Region } from '../database/getState';
 
 
 
@@ -48,7 +48,7 @@ export default function UsersList({
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={5} md={3} lg={2}>
-        <UserSearch singleColumn  dba={dba} taxID={taxID} region={region} city={city}/>
+        <UserSearch singleColumn  dba={dba} taxID={taxID} city={city} region={region} />
       </Grid>
       <Grid container item xs={12} sm={7} md={9} lg={10} spacing={3}>
         <Grid item xs={12}>
@@ -71,10 +71,12 @@ export const getServerSideProps: GetServerSideProps<UsersListProps> = async (
   ctx
 ) => {
 
+  const firstCity = getAsString(ctx.query.city);
+
   const [dba, taxID, region, city, pagination] = await Promise.all([
     getDBA(),
     getTaxID(),
-    getRegion(),
+    getState(firstCity),
     getCities(),
     getPaginatedUsers(ctx.query),
   ]);

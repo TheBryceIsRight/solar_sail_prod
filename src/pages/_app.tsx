@@ -12,7 +12,10 @@ import { Nav } from '../components/Nav';
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#004D60',
+    },
+    secondary: {
+      main: '#1D1E1F',
     },
     error: {
       main: red.A400,

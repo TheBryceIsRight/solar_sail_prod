@@ -6,8 +6,9 @@ import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { getTaxID, TaxID } from '../database/getTaxID';
 import { getDBA, BusinessAs } from '../database/getDBA';
-import { getRegion, Region } from '../database/getRegion';
+// import { getRegion, Region } from '../database/getRegion';
 import { getCities, City } from '../database/getCities';
+import { getState, Region } from '../database/getState';
 
 import { getAsString } from '../getAsString';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -21,25 +22,6 @@ export interface UserSearchProps {
   city: City[];
   singleColumn?: boolean;
 }
-
-export const cities = [{
-    state: "Illinois",
-    name: "Chicago",
-    id: 3,
-}, {
-    state: "Texas",
-    name: "Houston",
-    id: 2
-}, {
-    state: "California",
-    name: "Los Angeles",
-    id: 1
-}, {
-    state: "New York",
-    name: "New York City",
-    id: 4
-}];
-
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -141,7 +123,7 @@ export default function Search({ dba, taxID, region, city,  singleColumn }: User
                   </Field>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={smValue}>
+              {/* <Grid item xs={12} sm={smValue}>
                 <FormControl fullWidth variant="outlined">
                   <InputLabel id="search-region">State</InputLabel>
                   <Field
@@ -160,6 +142,9 @@ export default function Search({ dba, taxID, region, city,  singleColumn }: User
                     ))}
                   </Field>
                 </FormControl>
+              </Grid> */}
+              <Grid item xs={12} sm={smValue}>
+                <RegionSelect initialCity={initialValues.city} city={values.city} name="region" region={region} />
               </Grid>
               <Grid item xs={12}>
                 <Button
@@ -179,60 +164,62 @@ export default function Search({ dba, taxID, region, city,  singleColumn }: User
   );
 }
 
-// export interface ModelSelectProps extends SelectProps {
-//   name: string;
-//   models: Model[];
-//   make: string;
-//   initialMake: string;
-// }
+export interface RegionSelectProps extends SelectProps {
+  name: string;
+  region: Region[];
+  city: string;
+  initialCity: string;
+}
 
-// export function ModelSelect({ initialMake, models, make, ...props }: ModelSelectProps) {
-//   const { setFieldValue } = useFormikContext();
-//   const [field] = useField({
-//     name: props.name
-//   });
+export function RegionSelect({ initialCity, region, city, ...props }: RegionSelectProps) {
+  const { setFieldValue } = useFormikContext();
+  const [field] = useField({
+    name: props.name
+  });
 
-//   const initialModelsOrUndefined = make === initialMake ? models : undefined;
+  const initialRegionsOrUndefined = city === initialCity ? region : undefined;
 
-//   const { data: newModels } = useSWR<Model[]>('/api/models?make=' + make, {
-//     dedupingInterval: 60000,
-//     initialData: make === 'all' ? [] : initialModelsOrUndefined 
-//   });
+  const { data: newRegions } = useSWR<Region[]>('/api/regions?city=' + city, {
+    dedupingInterval: 60000,
+    initialData: city === 'all' ? [] : initialRegionsOrUndefined 
+  });
 
-//   useEffect(() => {
-//     if (!newModels?.map((a) => a.model).includes(field.value)) {
-//       setFieldValue('model', 'all');
-//     }
-//   }, [make, newModels]);
+  useEffect(() => {
+    if (!newRegions?.map((a) => a.region).includes(field.value)) {
+      setFieldValue('region', 'all');
+    }
+  }, [city, newRegions]);
 
-//   return (
-//     <FormControl fullWidth variant="outlined">
-//       <InputLabel id="search-model">Model</InputLabel>
-//       <Select
-//         name="model"
-//         labelId="search-model"
-//         label="Model"
-//         {...field}
-//         {...props}
-//       >
-//         <MenuItem value="all">
-//           <em>All Models</em>
-//         </MenuItem>
-//         {newModels?.map((model) => (
-//           <MenuItem key={model.model} value={model.model}>
-//             {`${model.model} (${model.count})`}
-//           </MenuItem>
-//         ))}
-//       </Select>
-//     </FormControl>
-//   );
-// }
+  return (
+    <FormControl fullWidth variant="outlined">
+      <InputLabel id="search-region">State</InputLabel>
+      <Select
+        name="region"
+        labelId="search-region"
+        label="State"
+        {...field}
+        {...props}
+      >
+        <MenuItem value="all">
+          <em>All States</em>
+        </MenuItem>
+        {newRegions?.map((region) => (
+          <MenuItem key={region.region} value={region.region}>
+            {region.region}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
+}
 
 export const getServerSideProps: GetServerSideProps<UserSearchProps> = async (
   ctx
 ) => {
 
-  const [taxID, dba, region, city] = await Promise.all([getTaxID(), getDBA(), getRegion(), getCities()]);
+  const firstCity = getAsString(ctx.query.city);
+
+  const [taxID, dba, region, city] = await Promise.all([getTaxID(), getDBA(), getState(firstCity), getCities()]);
 
   return { props: { taxID, dba, region, city } };
 };

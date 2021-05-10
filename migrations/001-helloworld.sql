@@ -28,14 +28,18 @@ CREATE TABLE User (
     country TEXT,
     postalCode TEXT,
     tenure TEXT, 
-    createDate DATE
+    createDate DATE,
+    logoUrl TEXT,
+    logoWidth INTEGER,
+    logoHeight INTEGER
 );
 
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456789', 'Coca-cola', '123456789123', '123 Peachtree St NW', 'APT 101', 'Atlanta', 'Georgia', 'United States', '12345', '1 year', DATE('2021-03-01'));
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456780', 'Pepsi', '123456789124', '123 Main St', 'APT 202', 'New York City', 'New York', 'United States',  '12345', '2 years', DATE('2021-03-02'));
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456781', 'Delta', '123456789125', '123 Englewood St', 'APT 101', 'Chicago', 'Illinois', 'United States', '12345', '1 year 6 mo', DATE('2021-03-03'));
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456782', 'Marriot', '123456789126', '123 Castle Heights Ave', '', 'Los Angeles', 'California', 'United States',  '90034', '4 year', DATE('2021-03-04'));
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456783', 'Hilton', '123456789127', '123 Broad St', 'APT 101', 'Seattle', 'Washington', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'));
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456789', 'Coca-Cola Company', '123456789123', '123 Peachtree St NW', 'APT 101', 'Atlanta', 'Georgia', 'United States', '12345', '1 year', DATE('2021-03-01'), '/photos/logos/Coca-Cola_logo.svg', 1059, 347);
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456780', 'Pepsi', '123456789124', '123 Main St', 'APT 202', 'New York City', 'New York', 'United States',  '12345', '2 years', DATE('2021-03-02'), '/photos/logos/Pepsi_logo_new.svg', 496, 158);
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456781', 'Delta', '123456789125', '123 Englewood St', 'APT 101', 'Chicago', 'Illinois', 'United States', '12345', '1 year 6 mo', DATE('2021-03-03'), '/photos/logos/Delta_logo.svg', 1000, 154);
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456782', 'Marriot', '123456789126', '123 Castle Heights Ave', '', 'Los Angeles', 'California', 'United States',  '90034', '4 year', DATE('2021-03-04'), '/photos/logos/Marriott_Logo.svg', 744, 384);
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456783', 'Hilton', '123456789127', '123 Broad St', 'APT 101', 'Seattle', 'Washington', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'), '/photos/logos/Hilton-Hotels_Logo.svg', 362, 276);
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456783', 'Foot Locker', '123456789127', '123 W Peachtree Ave', 'APT 101', 'Atlanta', 'Georgia', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'), '/photos/logos/Foot_Locker_logo.svg', 340, 206);
 
 
 -- CAR
