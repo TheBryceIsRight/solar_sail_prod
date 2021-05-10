@@ -12,6 +12,10 @@ import Link from 'next/link';
 import React from 'react';
 import { UserModel } from '../../api/User';
 import StoreIcon from '@material-ui/icons/Store';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
+
 
 export interface UserCardProps {
   user: UserModel;
@@ -44,12 +48,14 @@ export function UserCard({ user }: UserCardProps) {
   const classes = useStyles();
 
   return (
-    <Link
-      href="/user/[id]"
-      as={`/user/${user.id}`}
-    >
-      <a className={classes.achorTag}>
+
         <Card>
+            <Link
+              href="/user/[id]"
+              as={`/user/${user.id}`} passHref
+            >
+          <CardActionArea>
+
           <CardHeader
             avatar={
               <Avatar aria-label="recipe" className={classes.avatar}>
@@ -69,8 +75,22 @@ export function UserCard({ user }: UserCardProps) {
               Details
             </Typography>
           </CardContent>
+          </CardActionArea>
+          </Link>
+          <CardActions>
+          <Button size="small" color="primary" variant='outlined'>
+            Analyze
+          </Button>
+          <Link
+              href="/user/[id]"
+              as={`/user/${user.id}`} passHref
+            >
+          <Button size="small" color="primary">
+            Learn More
+          </Button>
+          </Link>
+        </CardActions>
+
         </Card>
-      </a>
-    </Link>
   );
 }

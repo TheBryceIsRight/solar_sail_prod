@@ -52,7 +52,7 @@ export default function UserDetails({ user }: UserDetailsProps) {
       <Head>
         <title>{user.dba}</title>
       </Head>
-        <Grid container spacing={2} alignItems='center' justify='center'>
+        <Grid container spacing={3} alignItems='center' justify='center'>
           <Grid item xs={12} sm={6} md={7} container >
           <Paper className={classes.paper}>
             <Grid item xs container direction="column" spacing={2}>
@@ -61,14 +61,7 @@ export default function UserDetails({ user }: UserDetailsProps) {
                   {user.dba}
                 </Typography>
               </Grid>
-              <Grid item xs>
-              <FormControlLabel
-                control={
-                  <Checkbox checked={dense} onChange={(event) => setDense(event.target.checked)} />
-                }
-                label="Enable dense formatting"
-              />
-              </Grid>
+
               <Grid item xs>
                 <Typography variant="h6">
                   Company Details
@@ -120,6 +113,14 @@ export default function UserDetails({ user }: UserDetailsProps) {
                       </ListItem>
             
                   </List>
+              </Grid>
+              <Grid item xs>
+              <FormControlLabel
+                control={
+                  <Checkbox checked={dense} onChange={(event) => setDense(event.target.checked)} />
+                }
+                label="Enable dense formatting"
+              />
               </Grid>
               
               <Grid item>
