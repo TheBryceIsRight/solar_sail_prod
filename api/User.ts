@@ -1,6 +1,8 @@
 export interface UserModel {
     id: number;
-    taxId: string;
+    taxID: string;
+    region: string;
+    city: string;
     dba: string;
 
   }

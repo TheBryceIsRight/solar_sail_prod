@@ -6,6 +6,9 @@ import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { getTaxID, TaxID } from '../database/getTaxID';
 import { getDBA, BusinessAs } from '../database/getDBA';
+import { getRegion, Region } from '../database/getRegion';
+import { getCities, City } from '../database/getCities';
+
 import { getAsString } from '../getAsString';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from "@material-ui/core/TextField";
@@ -14,6 +17,8 @@ import TextField from "@material-ui/core/TextField";
 export interface UserSearchProps {
   dba: BusinessAs[];
   taxID: TaxID[];
+  region: Region[];
+  city: City[];
   singleColumn?: boolean;
 }
 
@@ -46,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 const prices = [500, 1000, 5000, 15000, 25000, 50000, 250000];
 
-export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
+export default function Search({ dba, taxID, region, city,  singleColumn }: UserSearchProps) {
   const classes = useStyles();
   const { query } = useRouter();
   const smValue = singleColumn ? 12 : 6;
@@ -54,7 +59,8 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
   const [initialValues] = useState({
     dba: getAsString(query.dba) || 'all',
     taxID: getAsString(query.taxID) || 'all',
-    city_id: getAsString(query.taxID) || 'all',
+    region: getAsString(query.region) || 'all',
+    city: getAsString(query.region) || 'all',
   });
 
   return (
@@ -71,7 +77,7 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
         );
       }}
     >
-      {({ values, setFieldValue }) => (
+      {({ values }) => (
         <Form>
           <Paper elevation={5} className={classes.paper}>
             <Grid container spacing={3}>
@@ -85,7 +91,7 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
                     label="DBA"
                   >
                     <MenuItem value="all">
-                      <em>All businesses</em>
+                      <em>All Businesses</em>
                     </MenuItem>
                     {dba.map((dba) => (
                       <MenuItem key={dba.dba} value={dba.dba}>
@@ -97,7 +103,7 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
               </Grid>
               <Grid item xs={12} sm={smValue}>
                 <FormControl fullWidth variant="outlined">
-                  <InputLabel id="search-taxID">IDs</InputLabel>
+                  <InputLabel id="search-taxID">Tax ID</InputLabel>
                   <Field
                     name="taxID"
                     as={Select}
@@ -115,31 +121,46 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
                   </Field>
                 </FormControl>
               </Grid>
-              {/* <Grid item xs={12} sm={smValue}>
-                <Autocomplete
-                    id="taxID"
-                    options={taxID}
-                    getOptionLabel={option => option.name}
-                    onChange={(e, value) => {
-                        console.log(value);
-                        setFieldValue(
-                          "Tax ID: ",
-                          value !== null ? value : initialValues.taxID
-                        );
-                      }}
-                    renderInput={params => (
-                    <TextField
-                        margin="normal"
-                        label="Tax ID"
-                        fullWidth
-                        name="taxID"
-                        variant='outlined'
-                        {...params}
-                    />
-                    )}
-                />
+              <Grid item xs={12} sm={smValue}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel id="search-city">City</InputLabel>
+                  <Field
+                    name="city"
+                    as={Select}
+                    labelId="search-city"
+                    label="City"
+                  >
+                    <MenuItem value="all">
+                      <em>All Cities</em>
+                    </MenuItem>
+                    {city.map((city) => (
+                      <MenuItem key={city.city} value={city.city}>
+                      {city.city}
+                    </MenuItem>
+                    ))}
+                  </Field>
+                </FormControl>
               </Grid>
-               */}
+              <Grid item xs={12} sm={smValue}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel id="search-region">State</InputLabel>
+                  <Field
+                    name="region"
+                    as={Select}
+                    labelId="search-region"
+                    label="State"
+                  >
+                    <MenuItem value="all">
+                      <em>All States</em>
+                    </MenuItem>
+                    {region.map((region) => (
+                      <MenuItem key={region.region} value={region.region}>
+                      {region.region}
+                    </MenuItem>
+                    ))}
+                  </Field>
+                </FormControl>
+              </Grid>
               <Grid item xs={12}>
                 <Button
                   type="submit"
@@ -211,7 +232,7 @@ export const getServerSideProps: GetServerSideProps<UserSearchProps> = async (
   ctx
 ) => {
 
-  const [taxID, dba] = await Promise.all([getTaxID(), getDBA()]);
+  const [taxID, dba, region, city] = await Promise.all([getTaxID(), getDBA(), getRegion(), getCities()]);
 
-  return { props: { taxID, dba } };
+  return { props: { taxID, dba, region, city } };
 };

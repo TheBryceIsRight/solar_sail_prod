@@ -11,6 +11,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Link from 'next/link';
 import React from 'react';
 import { UserModel } from '../../api/User';
+import StoreIcon from '@material-ui/icons/Store';
 
 export interface UserCardProps {
   user: UserModel;
@@ -52,7 +53,7 @@ export function UserCard({ user }: UserCardProps) {
           <CardHeader
             avatar={
               <Avatar aria-label="recipe" className={classes.avatar}>
-                U
+                <StoreIcon/>
               </Avatar>
             }
             action={
@@ -61,6 +62,7 @@ export function UserCard({ user }: UserCardProps) {
               </IconButton>
             }
             title={user.dba}
+            subheader={user.city + ', ' + user.region}
           />
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">

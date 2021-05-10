@@ -6,9 +6,6 @@ import { stringify } from 'querystring';
 import { useState } from 'react';
 import useSWR from 'swr';
 import UserSearch from './search';
-import { CarModel } from '../../api/Car';
-import { CarCard } from '../components/CarCard';
-import { CarPagination } from '../components/CarPagination';
 import { getDBA, BusinessAs } from '../database/getDBA';
 import { getTaxID, TaxID } from '../database/getTaxID';
 import { getPaginatedUsers } from '../database/getPaginatedUsers';
@@ -16,17 +13,25 @@ import { getAsString } from '../getAsString';
 import { UserCard } from '../components/UserCard';
 import { UserModel } from '../../api/User';
 import { UserPagination } from '../components/UserPagination';
+import { getRegion, Region } from '../database/getRegion';
+import { getCities, City } from '../database/getCities';
+
+
 
 export interface UsersListProps {
   users: UserModel[];
   dba: BusinessAs[];
   taxID: TaxID[];
+  region: Region[];
+  city: City[];
   totalPages: number;
 }
 
 export default function UsersList({
   dba, 
-  taxID,  
+  taxID,
+  region,
+  city,  
   users,
   totalPages,
 }: UsersListProps) {
@@ -43,7 +48,7 @@ export default function UsersList({
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={5} md={3} lg={2}>
-        <UserSearch singleColumn  dba={dba} taxID={taxID} />
+        <UserSearch singleColumn  dba={dba} taxID={taxID} region={region} city={city}/>
       </Grid>
       <Grid container item xs={12} sm={7} md={9} lg={10} spacing={3}>
         <Grid item xs={12}>
@@ -66,9 +71,11 @@ export const getServerSideProps: GetServerSideProps<UsersListProps> = async (
   ctx
 ) => {
 
-  const [dba, taxID, pagination] = await Promise.all([
+  const [dba, taxID, region, city, pagination] = await Promise.all([
     getDBA(),
     getTaxID(),
+    getRegion(),
+    getCities(),
     getPaginatedUsers(ctx.query),
   ]);
 
@@ -76,6 +83,8 @@ export const getServerSideProps: GetServerSideProps<UsersListProps> = async (
     props: {
       dba,
       taxID,
+      region,
+      city, 
       users: pagination.users,
       totalPages: pagination.totalPages,
     },

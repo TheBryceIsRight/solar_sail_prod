@@ -43,8 +43,15 @@ export default function UserDetails({ user }: UserDetailsProps) {
                 <Typography variant="h5">
                   {user.dba}
                 </Typography>
-                <Typography variant="h5">
-                  Some details
+              </Grid>
+              <Grid item xs>
+              <Typography variant="h6">
+                  {'Location: '+ user.city + ', ' + user.region}
+                </Typography>
+              </Grid>
+              <Grid item xs>
+              <Typography variant="h6">
+                  {'Tax ID: '+ user.taxID}
                 </Typography>
               </Grid>
             </Grid>

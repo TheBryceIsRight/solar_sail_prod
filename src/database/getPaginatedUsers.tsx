@@ -7,6 +7,8 @@ const mainQuery = `
     FROM user
     WHERE (@dba is NULL OR @dba = dba)
     AND (@taxID is NULL OR @taxID = taxID)
+    AND (@region is NULL OR @region = region)
+    AND (@city is NULL OR @city = city)
 `;
 
 export async function getPaginatedUsers(query: ParsedUrlQuery) {
@@ -19,6 +21,8 @@ export async function getPaginatedUsers(query: ParsedUrlQuery) {
   const dbParams = {
     '@dba': getValueStr(query.dba),
     '@taxID': getValueStr(query.taxID),
+    '@region': getValueStr(query.region),
+    '@city': getValueStr(query.city),
   };
 
   const usersPromise = db.all<UserModel[]>(

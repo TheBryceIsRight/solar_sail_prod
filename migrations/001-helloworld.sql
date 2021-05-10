@@ -20,21 +20,22 @@ CREATE TABLE User (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     taxID TEXT,
     dba TEXT,
+    externalMID TEXT,
+    address1 TEXT, 
+    address2 TEXT,
+    city TEXT,
+    region TEXT, 
+    country TEXT,
+    postalCode TEXT,
+    tenure TEXT, 
     createDate DATE
 );
 
-INSERT INTO User (taxID, dba, createDate) values('123456789', 'Business 1', DATE('2021-03-01'));
-INSERT INTO User (taxID, dba, createDate) values('234567891', 'Business 2', DATE('2020-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('3456789121', 'Business 3', DATE('2018-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('456789123',  'Business 4', DATE('2018-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('567891234', 'Business 5', DATE('2018-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('678912345', 'Business 6', DATE('2018-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('123456780', 'Coca-Cola', DATE('2021-03-01'));
-INSERT INTO User (taxID, dba, createDate) values('234567890', 'Delta', DATE('2020-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('3456789120', 'The Home Depot', DATE('2018-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('456789120',  'Mailchimp', DATE('2018-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('567891230', 'NCR', DATE('2018-11-01'));
-INSERT INTO User (taxID, dba, createDate) values('678912340', 'U.S. Bank', DATE('2018-11-01'));
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456789', 'Coca-cola', '123456789123', '123 Peachtree St NW', 'APT 101', 'Atlanta', 'Georgia', 'United States', '12345', '1 year', DATE('2021-03-01'));
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456780', 'Pepsi', '123456789124', '123 Main St', 'APT 202', 'New York City', 'New York', 'United States',  '12345', '2 years', DATE('2021-03-02'));
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456781', 'Delta', '123456789125', '123 Englewood St', 'APT 101', 'Chicago', 'Illinois', 'United States', '12345', '1 year 6 mo', DATE('2021-03-03'));
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456782', 'Marriot', '123456789126', '123 Castle Heights Ave', '', 'Los Angeles', 'California', 'United States',  '90034', '4 year', DATE('2021-03-04'));
+INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate) values('123456783', 'Hilton', '123456789127', '123 Broad St', 'APT 101', 'Seattle', 'Washington', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'));
 
 
 -- CAR
