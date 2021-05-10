@@ -2,17 +2,39 @@ import { Button, FormControl, Grid, InputLabel, makeStyles, MenuItem, Paper, Sel
 import { Field, Form, Formik, useField, useFormikContext } from 'formik';
 import { GetServerSideProps } from 'next';
 import router, { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { getTaxID, TaxID } from '../database/getTaxID';
 import { getDBA, BusinessAs } from '../database/getDBA';
 import { getAsString } from '../getAsString';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from "@material-ui/core/TextField";
+
 
 export interface UserSearchProps {
   dba: BusinessAs[];
   taxID: TaxID[];
   singleColumn?: boolean;
 }
+
+export const cities = [{
+    state: "Illinois",
+    name: "Chicago",
+    id: 3,
+}, {
+    state: "Texas",
+    name: "Houston",
+    id: 2
+}, {
+    state: "California",
+    name: "Los Angeles",
+    id: 1
+}, {
+    state: "New York",
+    name: "New York City",
+    id: 4
+}];
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -32,6 +54,7 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
   const [initialValues] = useState({
     dba: getAsString(query.dba) || 'all',
     taxID: getAsString(query.taxID) || 'all',
+    city_id: getAsString(query.taxID) || 'all',
   });
 
   return (
@@ -48,7 +71,7 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
         );
       }}
     >
-      {({ values }) => (
+      {({ values, setFieldValue }) => (
         <Form>
           <Paper elevation={5} className={classes.paper}>
             <Grid container spacing={3}>
@@ -92,7 +115,31 @@ export default function Search({ dba, taxID, singleColumn }: UserSearchProps) {
                   </Field>
                 </FormControl>
               </Grid>
-              
+              {/* <Grid item xs={12} sm={smValue}>
+                <Autocomplete
+                    id="taxID"
+                    options={taxID}
+                    getOptionLabel={option => option.name}
+                    onChange={(e, value) => {
+                        console.log(value);
+                        setFieldValue(
+                          "Tax ID: ",
+                          value !== null ? value : initialValues.taxID
+                        );
+                      }}
+                    renderInput={params => (
+                    <TextField
+                        margin="normal"
+                        label="Tax ID"
+                        fullWidth
+                        name="taxID"
+                        variant='outlined'
+                        {...params}
+                    />
+                    )}
+                />
+              </Grid>
+               */}
               <Grid item xs={12}>
                 <Button
                   type="submit"
