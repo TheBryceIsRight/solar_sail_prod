@@ -19,6 +19,7 @@ INSERT INTO FAQ (question, answer, createDate) values('How much do I pay a month
 CREATE TABLE User (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     taxID TEXT,
+    merchantName TEXT,
     dba TEXT,
     externalMID TEXT,
     address1 TEXT, 
@@ -34,12 +35,12 @@ CREATE TABLE User (
     logoHeight INTEGER
 );
 
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456789', 'Coca-Cola Company', '123456789123', '123 Peachtree St NW', 'APT 101', 'Atlanta', 'Georgia', 'United States', '12345', '1 year', DATE('2021-03-01'), '/photos/logos/Coca-Cola_logo.svg', 1059, 347);
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456780', 'Pepsi', '123456789124', '123 Main St', 'APT 202', 'New York City', 'New York', 'United States',  '12345', '2 years', DATE('2021-03-02'), '/photos/logos/Pepsi_logo_new.svg', 496, 158);
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456781', 'Delta', '123456789125', '123 Englewood St', 'APT 101', 'Chicago', 'Illinois', 'United States', '12345', '1 year 6 mo', DATE('2021-03-03'), '/photos/logos/Delta_logo.svg', 1000, 154);
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456782', 'Marriot', '123456789126', '123 Castle Heights Ave', '', 'Los Angeles', 'California', 'United States',  '90034', '4 year', DATE('2021-03-04'), '/photos/logos/Marriott_Logo.svg', 744, 384);
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456783', 'Hilton', '123456789127', '123 Broad St', 'APT 101', 'Seattle', 'Washington', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'), '/photos/logos/Hilton-Hotels_Logo.svg', 362, 276);
-INSERT INTO User (taxID, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456784', 'Foot Locker', '123456789128', '123 W Peachtree Rd NW', 'APT 303', 'Atlanta', 'Georgia', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'), '/photos/logos/Foot_Locker_logo.svg', 340, 206);
+INSERT INTO User (taxID, merchantName, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456789', 'Barbara S. Jones', 'Coca-Cola Company', '123456789123', '123 Peachtree St NW', 'APT 101', 'Atlanta', 'Georgia', 'United States', '12345', '1 year', DATE('2021-03-01'), '/photos/logos/Coca-Cola_logo.svg', 1059, 347);
+INSERT INTO User (taxID, merchantName,  dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456780', 'William Heath', 'Pepsi', '123456789124', '123 Main St', 'APT 202', 'New York City', 'New York', 'United States',  '12345', '2 years', DATE('2021-03-02'), '/photos/logos/Pepsi_logo_new.svg', 496, 158);
+INSERT INTO User (taxID, merchantName, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456781', 'Finley Matthews','Delta', '123456789125', '123 Englewood St', 'APT 101', 'Chicago', 'Illinois', 'United States', '12345', '1 year 6 mo', DATE('2021-03-03'), '/photos/logos/Delta_logo.svg', 1000, 154);
+INSERT INTO User (taxID, merchantName, dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456782', 'Kaled Aguilera Villegas', 'Marriot', '123456789126', '123 Castle Heights Ave', '', 'Los Angeles', 'California', 'United States',  '90034', '4 year', DATE('2021-03-04'), '/photos/logos/Marriott_Logo.svg', 744, 384);
+INSERT INTO User (taxID, merchantName,  dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456783', 'Navila Escobedo Luna','Hilton', '123456789127', '123 Broad St', 'APT 101', 'Seattle', 'Washington', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'), '/photos/logos/Hilton-Hotels_Logo.svg', 362, 276);
+INSERT INTO User (taxID, merchantName,  dba, externalMID, address1, address2, city, region, country, postalCode, tenure, createDate, logoUrl, logoWidth, logoHeight) values('123456784', 'Phillipp Richter','Foot Locker', '123456789128', '123 W Peachtree Rd NW', 'APT 303', 'Atlanta', 'Georgia', 'United States', '12345', '4 year 6 mo', DATE('2021-03-05'), '/photos/logos/Foot_Locker_logo.svg', 340, 206);
 
 
 -- CAR

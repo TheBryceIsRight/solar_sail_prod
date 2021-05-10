@@ -19,7 +19,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
 import WorkIcon from '@material-ui/icons/Work';
-
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -76,6 +76,17 @@ export default function UserDetails({ user }: UserDetailsProps) {
                         <ListItemText
                           primary="Location"
                           secondary={user.address1 + ' ' + user.city + ', ' + user.region+ ' '+user.postalCode}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar className={classes.avatar}>
+                            <PersonIcon />
+                          </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary="Point of Contact"
+                          secondary= {user.merchantName}
                         />
                       </ListItem>
                       <ListItem>
