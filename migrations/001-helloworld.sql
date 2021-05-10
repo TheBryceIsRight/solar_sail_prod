@@ -8,12 +8,12 @@ CREATE TABLE FAQ (
     createDate DATE
 );
 
-INSERT INTO FAQ (question, answer, createDate) values('How to be safe buying online?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo', DATE('2019-11-01'));
-INSERT INTO FAQ (question, answer, createDate) values('Do I have any assurance on my new car?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo', DATE('2020-11-01'));
-INSERT INTO FAQ (question, answer, createDate) values('How many kilometers a normal car can have?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo', DATE('2018-11-01'));
-INSERT INTO FAQ (question, answer, createDate) values('What is the best month to buy a car?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo', DATE('2018-11-01'));
-INSERT INTO FAQ (question, answer, createDate) values('How to know the car history?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo', DATE('2018-11-01'));
-INSERT INTO FAQ (question, answer, createDate) values('How much do I pay a month to use the service?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo', DATE('2018-11-01'));
+INSERT INTO FAQ (question, answer, createDate) values('What is Next.js?', 'Next.js is a minimialist React framework designed to allow applications to scale easily over their lifespan. Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.', DATE('2019-11-01'));
+INSERT INTO FAQ (question, answer, createDate) values('What is React?', 'React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications', DATE('2020-11-01'));
+INSERT INTO FAQ (question, answer, createDate) values('What is Nivo?', 'Nivo provides supercharged React components to easily build dataviz apps, built on top of d3. Several libraries already exist for React d3 integration, but just a few provide server side rendering ability and fully declarative charts.', DATE('2018-11-01'));
+INSERT INTO FAQ (question, answer, createDate) values('What is SWR?', 'SWR is a React Hooks library for remote data fetching. The name “SWR” is derived from stale-while-revalidate, a cache invalidation strategy popularized by HTTP RFC 5861. SWR first returns the data from cache (stale), then sends the fetch request (revalidate), and finally comes with the up-to-date data again. With SWR, components will get a stream of data updates constantly and automatically. Thus, the UI will be always fast and reactive.', DATE('2018-11-01'));
+INSERT INTO FAQ (question, answer, createDate) values('What is Material UI?', 'Material Design is a design language developed by Google in 2014. Expanding on the "card" motifs that debuted in Google Now, Material Design uses more grid-based layouts, responsive animations and transitions, padding, and depth effects such as lighting and shadows.', DATE('2018-11-01'));
+INSERT INTO FAQ (question, answer, createDate) values('What is Formik?', "Formik is the world's most popular open source form library for React and React Native.", DATE('2018-11-01'));
 
 -- User
 CREATE TABLE User (
