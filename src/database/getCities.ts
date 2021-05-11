@@ -2,7 +2,6 @@ import { openDB } from '../openDB';
 
 export interface City {
   id: number;
-  name: string;
   count: number;
   city: string;
 }

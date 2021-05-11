@@ -9,10 +9,12 @@ import { getDBA, BusinessAs } from '../database/getDBA';
 // import { getRegion, Region } from '../database/getRegion';
 import { getCities, City } from '../database/getCities';
 import { getState, Region } from '../database/getState';
+import { getSIC, SIC } from '../database/getSIC';
 
 import { getAsString } from '../getAsString';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from "@material-ui/core/TextField";
+import SearchIcon from '@material-ui/icons/Search';
 
 
 export interface UserSearchProps {
@@ -20,6 +22,7 @@ export interface UserSearchProps {
   taxID: TaxID[];
   region: Region[];
   city: City[];
+  sic: SIC[];
   singleColumn?: boolean;
 }
 
@@ -33,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const prices = [500, 1000, 5000, 15000, 25000, 50000, 250000];
 
-export default function Search({ dba, taxID, region, city,  singleColumn }: UserSearchProps) {
+export default function Search({ dba, taxID, region, city, sic, singleColumn }: UserSearchProps) {
   const classes = useStyles();
   const { query } = useRouter();
   const smValue = singleColumn ? 12 : 6;
@@ -43,6 +46,7 @@ export default function Search({ dba, taxID, region, city,  singleColumn }: User
     taxID: getAsString(query.taxID) || 'all',
     region: getAsString(query.region) || 'all',
     city: getAsString(query.region) || 'all',
+    sic: getAsString(query.sic) || 'all',
   });
 
   return (
@@ -123,6 +127,26 @@ export default function Search({ dba, taxID, region, city,  singleColumn }: User
                   </Field>
                 </FormControl>
               </Grid>
+              <Grid item xs={12} sm={smValue}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel id="search-sic">SIC</InputLabel>
+                  <Field
+                    name="sic"
+                    as={Select}
+                    labelId="search-sic"
+                    label="SIC"
+                  >
+                    <MenuItem value="all">
+                      <em>All Categories</em>
+                    </MenuItem>
+                    {sic.map((sic) => (
+                      <MenuItem key={sic.sic} value={sic.sic}>
+                        {sic.sic}
+                      </MenuItem>
+                    ))}
+                  </Field>
+                </FormControl>
+              </Grid>
               {/* <Grid item xs={12} sm={smValue}>
                 <FormControl fullWidth variant="outlined">
                   <InputLabel id="search-region">State</InputLabel>
@@ -151,6 +175,7 @@ export default function Search({ dba, taxID, region, city,  singleColumn }: User
                   type="submit"
                   variant="contained"
                   color="primary"
+                  startIcon={<SearchIcon/>}
                   fullWidth
                 >
                   Search
@@ -190,6 +215,7 @@ export function RegionSelect({ initialCity, region, city, ...props }: RegionSele
     }
   }, [city, newRegions]);
 
+
   return (
     <FormControl fullWidth variant="outlined">
       <InputLabel id="search-region">State</InputLabel>
@@ -219,7 +245,7 @@ export const getServerSideProps: GetServerSideProps<UserSearchProps> = async (
 
   const firstCity = getAsString(ctx.query.city);
 
-  const [taxID, dba, region, city] = await Promise.all([getTaxID(), getDBA(), getState(firstCity), getCities()]);
+  const [taxID, dba, region, city, sic] = await Promise.all([getTaxID(), getDBA(), getState(firstCity), getCities(), getSIC()]);
 
-  return { props: { taxID, dba, region, city } };
+  return { props: { taxID, dba, region, city, sic } };
 };

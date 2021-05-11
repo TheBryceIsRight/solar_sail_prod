@@ -9,6 +9,7 @@ const mainQuery = `
     AND (@taxID is NULL OR @taxID = taxID)
     AND (@region is NULL OR @region = region)
     AND (@city is NULL OR @city = city)
+    AND (@sic is NULL OR @sic = sic)
 `;
 
 export async function getPaginatedUsers(query: ParsedUrlQuery) {
@@ -23,6 +24,7 @@ export async function getPaginatedUsers(query: ParsedUrlQuery) {
     '@taxID': getValueStr(query.taxID),
     '@region': getValueStr(query.region),
     '@city': getValueStr(query.city),
+    '@sic': getValueStr(query.sic),
   };
 
   const usersPromise = db.all<UserModel[]>(

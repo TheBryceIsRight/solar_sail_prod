@@ -1,6 +1,7 @@
 export interface UserModel {
     id: number;
     taxID: string;
+    sic: string;
     externalMID: string;
     merchantName: string;
     region: string;
