@@ -59,11 +59,6 @@ export function UserCard({ user }: UserCardProps) {
                 <StoreIcon />
               </Avatar>
             }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
             title={user.dba}
             subheader={user.city + ', ' + user.region}
           />
