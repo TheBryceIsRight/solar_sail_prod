@@ -40,7 +40,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonIcon from '@material-ui/icons/Person';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MessageIcon from '@material-ui/icons/Message';
-import DarkModeIcon from '@material-ui/icons/DarkMode';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
 import { useRouter } from 'next/router';
 import Tooltip from '@material-ui/core/Tooltip';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -411,7 +411,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <ListItemText primary="Notifications"/>
       </MenuItem>
       <MenuItem onClick={handleThemeChange} >
-          <ListItemIcon><DarkModeIcon/>
+          <ListItemIcon><Brightness3Icon/>
           </ListItemIcon>
           <ListItemText primary="Dark Mode" />
       </MenuItem>
@@ -551,7 +551,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     onClick={handleThemeChange}
                     color="primary"
                   >
-                    <DarkModeIcon />
+                    <Brightness3Icon />
                   </IconButton>
                   </Tooltip>
                 </div>
