@@ -1,5 +1,6 @@
 // pages/404.js
 import React from 'react';
+import Head from 'next/Head';
 import Image from 'next/image';
 import {Grid} from '@material-ui/core';
 import {Typography} from '@material-ui/core';
@@ -7,7 +8,11 @@ import {Typography} from '@material-ui/core';
 
 export default function Custom404() {
 
-    return (<Grid container direction='column' spacing={5} alignItems='center' justify='center'>
+    return ( <React.Fragment>
+    <Head>
+        <title>404 Page Not Found</title>
+    </Head>
+    <Grid container direction='column' spacing={5} alignItems='center' justify='center'>
         <Grid item>
             <Typography variant='h2'>Sorry about that :(</Typography>
             
@@ -24,5 +29,6 @@ export default function Custom404() {
                 />
             </Grid>
             </Grid>
+            </React.Fragment>
    )
   }

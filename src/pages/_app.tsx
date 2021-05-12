@@ -319,7 +319,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   function Logo() {
     if (!darkState) {
       return (
-      <Link href="/" passHref>
+      <Link href="/search" passHref>
         <ButtonBase>
         <img src='/logo_dark.svg' alt='Logo' height={36} width={94} />
         </ButtonBase>
@@ -327,7 +327,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       );
     } else {
     return (
-      <Link href="/" passHref>
+      <Link href="/search" passHref>
         <ButtonBase>
         <img src='/logo.svg' alt='Logo' height={36} width={94}/>
         </ButtonBase>
