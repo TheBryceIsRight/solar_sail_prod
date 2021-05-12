@@ -40,7 +40,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonIcon from '@material-ui/icons/Person';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MessageIcon from '@material-ui/icons/Message';
-import Brightness3Icon from '@material-ui/icons/Brightness3';
+import DarkModeIcon from '@material-ui/icons/DarkMode';
 import { useRouter } from 'next/router';
 import Tooltip from '@material-ui/core/Tooltip';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -301,7 +301,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </MenuItem>
       </Link>
       <Link href="/Signup" passHref>
-
       <MenuItem>
             <ListItemIcon>
               <PersonAddIcon/>
@@ -399,7 +398,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
       >
-      <Link href="/tableDemo" passHref >
+      <Link href="/TableDemo" passHref >
       <MenuItem>
           <ListItemIcon><VideogameAssetIcon />
           </ListItemIcon>
@@ -412,7 +411,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <ListItemText primary="Notifications"/>
       </MenuItem>
       <MenuItem onClick={handleThemeChange} >
-          <ListItemIcon><Brightness3Icon/>
+          <ListItemIcon><DarkModeIcon/>
           </ListItemIcon>
           <ListItemText primary="Dark Mode" />
       </MenuItem>
@@ -552,7 +551,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     onClick={handleThemeChange}
                     color="primary"
                   >
-                    <Brightness3Icon />
+                    <DarkModeIcon />
                   </IconButton>
                   </Tooltip>
                 </div>

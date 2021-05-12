@@ -56,7 +56,7 @@ export function UserCard({ user }: UserCardProps) {
           <CardHeader
             avatar={
               <Avatar aria-label="recipe">
-                <StoreIcon/>
+                <StoreIcon />
               </Avatar>
             }
             action={
