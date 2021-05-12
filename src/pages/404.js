@@ -24,8 +24,8 @@ export default function Custom404() {
             <Image
                 src='/photos/custom/not_found.svg'
                 alt='404 Page not found'
-                width={885}
-                height={614}
+                width={754}
+                height={750}
                 />
             </Grid>
             </Grid>

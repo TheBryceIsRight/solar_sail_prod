@@ -14,13 +14,9 @@ import ThemeContext from '../../components/Theme';
 import { responsiveFontSizes } from '@material-ui/core/styles';
 import { lightTheme, darkTheme } from '../../components/Theme'
 import React, { useState, useEffect } from 'react'
-
 import { AppProps } from 'next/app';
 import { Router } from 'next/dist/client/router';
 import 'nprogress/nprogress.css';
-
-
-
 import Link from 'next/link';
 import {
   AppBar,
@@ -33,11 +29,9 @@ import {
   ListItemText,
  } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert'; 
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -46,11 +40,8 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonIcon from '@material-ui/icons/Person';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import MessageIcon from '@material-ui/icons/Message';
-// import useTranslation from '../../hooks/useTranslation';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import { useRouter } from 'next/router';
-// import { locales, languageNames } from '../../translations/config';
-// import TranslateIcon from '@material-ui/icons/Translate';
 import Tooltip from '@material-ui/core/Tooltip';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Divider from '@material-ui/core/Divider';
@@ -93,27 +84,6 @@ const themeContext = {
   ],
   index: 0,
 }
-
-// Create a theme instance.
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: {
-//       main: '#004D60',
-//     },
-//     nuetral: {
-//       main: '#D4D5D3',
-//     },
-//     secondary: {
-//       main: '#1D1E1F',
-//     },
-//     error: {
-//       main: red.A400,
-//     },
-//     background: {
-//       default: '#fff',
-//     },
-//   },
-// });
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   body: {
@@ -238,7 +208,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     themeContext.name = darkState ? themeContext.type[0] : themeContext.type[1] ;
     themeContext.switch = darkState ? false : true ;
   };
-  
 
   let theme = darkState ? lightTheme : darkTheme;
 
@@ -251,8 +220,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const NavigationBar: React.FC = () => {
   
   const classes = useStyles();
-
-  // const { t,  locale} = useTranslation()
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -287,34 +254,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const handleMobileMenuOpen = (event: any) => {
       setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  /////////////////////////////
-  //Language Selector
-  /////////////////////////////
-
-  // const router = useRouter();
-
-  // const [languageAnchorEl, setlanguageAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  // const handleMenuItemClick = (event: React.MouseEvent<HTMLElement>, index: number) => {
-  //   setlanguageAnchorEl(null);
-  //   themeContext.index = index;
-  //   const { myValue } = event.currentTarget.dataset;
-  //   const regex = new RegExp(`^/(${locales.join('|')})`);
-  //   router.push(router.pathname, router.asPath.replace(regex, `/${myValue}`));
-  // };
-
-  // const handleLanguageMenuOpen = (event: any) => {
-  //   setlanguageAnchorEl(event.currentTarget);
-  // };
-
-  // const handleClose = () => {
-  //   setlanguageAnchorEl(null);
-  // };
-
-  ///////////////////////////
-  //End of Language Selector
-  ///////////////////////////
 
   function Logo() {
     if (!darkState) {
