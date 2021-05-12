@@ -313,7 +313,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemText>
       </MenuItem>
       </Link>
-      <Link href="/tableDemo" passHref >
+      <Link href="/TableDemo" passHref >
       <MenuItem>
         
             <ListItemIcon>

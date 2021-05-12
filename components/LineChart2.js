@@ -10,7 +10,6 @@ import { lightTheme } from '../components/Theme';
 import ThemeContext from '../components/Theme';
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Media, MediaContextProvider } from "../utils/media";
 import { ResponsiveLine } from '@nivo/line'
 
 

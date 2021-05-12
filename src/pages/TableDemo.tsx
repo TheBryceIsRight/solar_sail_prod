@@ -14,7 +14,7 @@ import themeContext from '../../components/Theme';
 import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react'
 import { GetServerSideProps } from 'next';
-import { Person } from '../../model/Person';
+import { Person } from '../../api/Person';
 import { openDB } from '../openDB';
 
 export interface IndexProps {
