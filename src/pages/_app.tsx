@@ -195,7 +195,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   const containerHuge = {
-    maxWidth: '72rem',
+    maxWidth: '84rem',
     padding: '0 1rem',
     margin: '3rem auto 6rem'
   };
@@ -300,7 +300,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </ListItemText>
       </MenuItem>
       </Link>
-      <Link href="/Login" passHref>
+      <Link href="/Signup" passHref>
 
       <MenuItem>
             <ListItemIcon>
