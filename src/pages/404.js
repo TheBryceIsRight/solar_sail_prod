@@ -1,6 +1,6 @@
 // pages/404.js
 import React from 'react';
-import Head from 'next/Head';
+import Head from 'next/head';
 import Image from 'next/image';
 import {Grid} from '@material-ui/core';
 import {Typography} from '@material-ui/core';
