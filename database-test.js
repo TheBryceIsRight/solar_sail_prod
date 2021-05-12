@@ -9,8 +9,8 @@ async function setup() {
 
   await db.migrate({ force: 'last' });
 
-  const users = await db.all('SELECT * FROM User ORDER BY createDate DESC');
-  console.log('ALL Users', JSON.stringify(users, null, 2));
+  // const users = await db.all('SELECT * FROM User ORDER BY createDate DESC');
+  // console.log('ALL Users', JSON.stringify(users, null, 2));
 
   // const cars = await db.all('SELECT * FROM Car');
   // console.log('ALL CARS', JSON.stringify(cars, null, 2));
