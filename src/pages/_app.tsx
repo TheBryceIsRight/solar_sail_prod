@@ -524,7 +524,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </IconButton>   
                 <Drawer 
                     anchor={'left'} 
-                    variant="persistent"
+                    // variant="persistent"
                     open={state['left']} 
                     onClose={toggleDrawer('left', false)}>{list('left')}
                     
