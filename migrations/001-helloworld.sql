@@ -1,4 +1,14 @@
+CREATE TABLE Person (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstName TEXT,
+    lastName TEXT,
+    email TEXT,
+    password TEXT
+);
 
+
+INSERT INTO Person (firstName, lastName, email, password) values ('Wanda', 'Maximoff',  'theDarkHold@gmail.com', 'jbyM3&oXvcnmJFL2?~du7U=-&8eXAL*yr)nhshCo');
+INSERT INTO Person (firstName, lastName, email, password) values ('The', 'Vision', 'theMindStone@hotmail.com', 'yUf=kqjdmcgH@}oD!!H^cHybZD%],w#Tfw*?.h4}');
 
 -- FAQ
 CREATE TABLE FAQ (
@@ -83,3 +93,4 @@ INSERT INTO Car (make, model, year, kilometers, fuelType, price, photoUrl, detai
 DROP TABLE Car;
 DROP TABLE FAQ;
 DROP TABLE User;
+DROP TABLE Person;

@@ -36,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: '#007079',
-  },
   achorTag: {
       textDecoration: 'none'
   }
@@ -58,7 +55,7 @@ export function UserCard({ user }: UserCardProps) {
 
           <CardHeader
             avatar={
-              <Avatar aria-label="recipe" className={classes.avatar}>
+              <Avatar aria-label="recipe">
                 <StoreIcon/>
               </Avatar>
             }

@@ -29,9 +29,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     margin: theme.spacing(4, 0, 2),
   },
-  avatar: {
-    backgroundColor: '#1D1E1F',
-  },
 }));
 
 interface UserDetailsProps {
@@ -69,7 +66,7 @@ export default function UserDetails({ user }: UserDetailsProps) {
                   <List dense={dense}>
                       <ListItem>
                         <ListItemAvatar>
-                          <Avatar className={classes.avatar}>
+                          <Avatar>
                             <MapIcon />
                           </Avatar>
                         </ListItemAvatar>
@@ -80,7 +77,7 @@ export default function UserDetails({ user }: UserDetailsProps) {
                       </ListItem>
                       <ListItem>
                         <ListItemAvatar>
-                          <Avatar className={classes.avatar}>
+                          <Avatar>
                             <PersonIcon />
                           </Avatar>
                         </ListItemAvatar>
@@ -91,7 +88,7 @@ export default function UserDetails({ user }: UserDetailsProps) {
                       </ListItem>
                       <ListItem>
                         <ListItemAvatar>
-                          <Avatar className={classes.avatar}>
+                          <Avatar>
                             <WorkIcon />
                           </Avatar>
                         </ListItemAvatar>
@@ -102,7 +99,7 @@ export default function UserDetails({ user }: UserDetailsProps) {
                       </ListItem>
                       <ListItem>
                         <ListItemAvatar>
-                          <Avatar className={classes.avatar}>
+                          <Avatar>
                             <FingerprintIcon />
                           </Avatar>
                         </ListItemAvatar>
@@ -113,7 +110,7 @@ export default function UserDetails({ user }: UserDetailsProps) {
                       </ListItem>
                       <ListItem>
                         <ListItemAvatar>
-                          <Avatar className={classes.avatar}>
+                          <Avatar>
                             <TimelapseIcon />
                           </Avatar>
                         </ListItemAvatar>

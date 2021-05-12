@@ -1,10 +1,19 @@
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import Document, { Head, Main, NextScript } from 'next/document';
 import React from 'react';
-import { theme } from './_app';
+import { darkTheme, lightTheme } from '../../components/Theme';
+import ThemeContext from '../../components/Theme';
+
 
 export default class MyDocument extends Document {
+
+  static contextType = ThemeContext;
+
   render() {
+
+    let theme = lightTheme;
+    theme = this.context ? darkTheme : lightTheme;
+
     return (
       <html lang="en">
         <Head>
