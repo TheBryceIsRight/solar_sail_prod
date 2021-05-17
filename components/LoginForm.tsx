@@ -36,7 +36,7 @@ export default function FormDemo() {
 
     const [message, setMessage] = useState<any>(null);
     async function handleLogin(email:string, password:string) {
-      const resp = await fetch('http://localhost:3000/api/login', {
+      const resp = await fetch('https://solar-sail-prod.vercel.app/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

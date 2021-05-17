@@ -18,7 +18,7 @@ export async function myGet(url: string, ctx: NextPageContext) {
 
     if(resp.status === 401 && ctx.req) {
         ctx.res?.writeHead(302, {
-            Location: 'http://localhost:3000/login'
+            Location: 'https://solar-sail-prod.vercel.app/login'
         });
         ctx.res?.end();
         return;

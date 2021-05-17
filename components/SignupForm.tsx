@@ -42,7 +42,7 @@ export default function SignupForm() {
     const [open, setOpen] = React.useState(false);
 
     async function handleLogin(firstName:string, lastName:string, email:string, password:string) {
-      const resp = await fetch('http://localhost:3000/api/signup', {
+      const resp = await fetch('https://solar-sail-prod.vercel.app/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
